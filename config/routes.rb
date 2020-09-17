@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'users#home'  
   get '/auth/facebook/callback' => 'sessions#create'
   get 'sessions/new'
   get 'sessions/create'
