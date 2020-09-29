@@ -5,16 +5,19 @@
     <h2>Email: <%= @user.email %></h2>
     <h2>Facebook UID: <%= @user.uid %></h2>
   <% else %>
+    <br>
     <h1>Sign In</h1>
-      <br><br>
+      <div class='center'>
       <%= form_for(:session, url: signin_url) do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email%>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
       <%= f.label :password %>
       <%= f.password_field :password, id: "password" %><br>
+      <br>
       <%= f.submit value: "Sign In" %>
       <% end %> 
     <%= link_to('Log in with Facebook', '/auth/facebook') %>
+      </div>
       <br><br>
     <h1>Or register <%= link_to('Here', '/users/new') %> if you are a new user</h1>
   <% end %>

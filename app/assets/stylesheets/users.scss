@@ -1,3 +1,36 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  text-align: center;
+  color: black;
+  font-style: italic;
+}
+
+body {
+  color: black;
+}
+
+a:link {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+
+a:visited {
+  color:purple;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+body { 
+  background-image: image-url('keto_foods.jpg'); 
+}
