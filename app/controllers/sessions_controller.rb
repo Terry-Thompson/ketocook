@@ -20,4 +20,11 @@ class SessionsController < ApplicationController
 
   def find_user
   end
+
+
+  private
+  
+  def auth
+    request.env['omniauth.auth']
+  end
 end
