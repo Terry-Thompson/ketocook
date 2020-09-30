@@ -7,13 +7,13 @@
     <br>
     <h1>Sign In</h1>
       <div class='center'>
-      <%= form_for(:session, url: signin_url) do |f| %>
+      <%= form_for(:session, url: login_url) do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %>
       <%= f.label :password %>
       <%= f.password_field :password, id: "password" %><br>
       <br>
-      <%= f.submit value: "Sign In" %>
+      <%= f.submit value: "Log In" %>
       <% end %> 
     <%= link_to('Log in with Facebook', '/auth/facebook') %>
       </div>
