@@ -1,8 +1,7 @@
 <h1>Ketocook!  Lose weight, eat great!</h1>
 
   <% if session[:user_id] %>
-    <h1>Welcome back!</h1>
-    <h2>Email: <%= @user.email %></h2>
+    <h1>Welcome back <%= @user.username %></h1>
     <h2>Facebook UID: <%= @user.uid %></h2>
   <% else %>
     <br>
