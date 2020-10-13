@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get '/logout' => 'sessions#destroy'
   get 'sessions/find_user'
-  resources :users
-  resources :recipes do  
-    :ingredients
+  resources :users do
+    resources :recipes do  
+     :ingredients
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
