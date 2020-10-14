@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
 
   def show
-    
+    @weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] 
   end
 
   # GET /users/new

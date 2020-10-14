@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'sessions/find_user'
   resources :users do
     resources :recipes do  
-     :ingredients
+      resources :ingredients
     end
   end
 
