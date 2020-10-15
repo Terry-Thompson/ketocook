@@ -23,3 +23,5 @@ Confirm:
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
 
+Questions:
+1. What is the proper command for removing a column?
