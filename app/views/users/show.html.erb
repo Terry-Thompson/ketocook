@@ -2,19 +2,21 @@
 
 <p>
   <strong>Username:</strong>
-  <%= @user.username %>
+  <%= @user.username %><%= button_to "Random Meals", meal_plan_path %>
 </p>
+<% if meal_plan? %>
   <table>
       <th>Day</th>
       <th>Meals</th>
-      <% @weekdays.each do |weekday| %>
-      <% recipe = random_recipe %>
+      <% @weekdays.each_with_index do |weekday, i| %>
+      <% recipe = meal_plan[i] %> 
       <tr>
         <td><%= weekday %></td>
-        <td><%= link_to recipe.title,user_recipe_path(recipe)%></td> 
+        <td><%= link_to recipe.title, user_recipe_path(recipe)%></td> 
       </tr> 
       <% end %>
   </table>
+<% end %>
 <p>
   <%= link_to 'Log out', logout_path %>
 

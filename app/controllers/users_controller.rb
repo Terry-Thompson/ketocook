@@ -26,6 +26,13 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def meal_plan
+    @user = User.find(current_user.id)
+    random_meals
+    @user.save
+    redirect_to user_path(@user)
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -74,6 +81,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email, :password_digest)
+      params.require(:user).permit(:username, :email, :password_digest, :meal_plan)
     end
 end

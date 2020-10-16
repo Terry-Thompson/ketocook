@@ -9,4 +9,16 @@ class ApplicationController < ActionController::Base
   def login(user)
     session[:current_user_id] = user.id
   end
+
+  def random_meals
+    recipes = []
+    @user.recipes.each{|recipe|recipes<<recipe.id}
+    @user.meal_plan = ""
+    @user.save
+    @user.meal_plan << recipes.sample(7).to_s
+    @user.save
+  end
 end
+
+
+
