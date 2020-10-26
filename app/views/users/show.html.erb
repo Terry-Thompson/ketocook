@@ -2,7 +2,7 @@
 
 <p>
   <strong>Username:</strong>
-  <%= @user.username %><%= button_to "Random Meals", meal_plan_path %>
+  <%= @user.username %><%= button_to "Randomize Meals", meal_plan_path %>
 </p>
 <% if meal_plan? %>
   <table>
@@ -12,7 +12,7 @@
       <% recipe = meal_plan[i] %> 
       <tr>
         <td><%= weekday %></td>
-        <td><%= link_to recipe.title, user_recipe_path(recipe)%></td> 
+        <td><%= link_to recipe.title, user_recipe_path(@user, recipe) %></td> 
       </tr> 
       <% end %>
   </table>

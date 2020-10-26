@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :recipes
 
 
-#  validates :password, presence: true
+  validates :password, presence: true unless :password_digest
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true, :format => /\A[a-zA-Z0-9.!\#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\z/
 

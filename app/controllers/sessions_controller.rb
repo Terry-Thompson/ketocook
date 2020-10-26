@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to user_path(@user)  
     else
+      danger: "Invalid email or password"
       redirect_to '/'
     end 
   end

@@ -4,12 +4,15 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    @user = current_user
     @recipes = Recipe.all
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @user = current_user
+    @recipe_ingredients = RecipeIngredient.where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new

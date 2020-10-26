@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  add_flash_types :danger, :info, :warning, :success
+
   def current_user
     if id = session[:current_user_id]
       @current_user = User.find(id)

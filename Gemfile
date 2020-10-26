@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+gem 'bootstrap-sass'
+gem 'sassc-rails'
+gem 'jquery-rails'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'therubyracer'
 gem 'pry'

@@ -9,12 +9,13 @@
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
-
+  <strong>Ingredients:</strong>
 <ol>
 <% @recipe.ingredients.each do |ingredient| %>
-<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+<li><%= quantity(ingredient)+" " %><%= link_to ingredient.name, user_recipe_ingredient_path(@user, @recipe, ingredient) %></li>
 <% end %>
 </ol>
-
+  <strong>Instructions:</strong>
+  <p><%= @recipe.instructions %>
 <%= link_to 'Edit', edit_user_recipe_path(@recipe) %> |
 <%= link_to 'Back', user_recipes_path %>
