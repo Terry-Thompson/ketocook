@@ -7,9 +7,10 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username]) 
     if @user && @user.authenticate(params[:session][:password])
       login(@user)
+      flash[:success] = "Successfully logged in"
       redirect_to user_path(@user)  
     else
-      danger: "Invalid email or password"
+      flash[:danger] = "Invalid email or password"
       redirect_to '/'
     end 
   end
