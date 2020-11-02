@@ -1,6 +1,6 @@
 <h1>Recipes</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Title</th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= recipe.title %></td>
         <td><%= recipe.description %></td>
-        <td><%= link_to 'Show',user_recipe_path(@user, recipe) %></td>
-        <td><%= link_to 'Edit', edit_user_recipe_path(@user,recipe) %></td>
-        <td><%= link_to 'Destroy',user_recipe_path(@user,recipe), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show',user_recipe_path(@user, recipe), class:"btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_user_recipe_path(@user,recipe), class:"btn btn-warning" %></td>
+        <td><%= link_to 'Destroy',user_recipe_path(@user,recipe), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_user_recipe_path(@user) %>
+<%= link_to 'New Recipe', new_user_recipe_path(@user), class:"btn btn-success" %>

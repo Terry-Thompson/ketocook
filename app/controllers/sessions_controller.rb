@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def find_user
+    User.find(current_user.id)
   end
 
 

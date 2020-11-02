@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get '/logout' => 'sessions#destroy'
   get 'sessions/find_user'
+#  get 'users/:user_id/ingredients' => 'ingredients#index', :as => 'user_ingredients'
+#  get 'users/:user_id/ingredient_id' => 'ingredients#show', :as => 'ingredient'
+  resources :ingredients
   resources :users do
     resources :recipes do  
       resources :ingredients

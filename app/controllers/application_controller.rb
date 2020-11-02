@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     @user.meal_plan << recipes.sample(7).to_s
     @user.save
   end
+
 end
 
 

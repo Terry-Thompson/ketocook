@@ -4,14 +4,19 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    @user = current_user
+    @ingredients = []
+    @user.recipes.each do |recipe|
+      recipe.ingredients.each {|i| @ingredients << i}
+    end
+    @ingredients = @ingredients.uniq.sort_by {|i| i.name}
   end
 
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
     @user = current_user
-    @recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id]) if params[:recipe_id]
   end
 
   # GET /ingredients/new

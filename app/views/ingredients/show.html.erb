@@ -17,6 +17,10 @@
     <li> <%= link_to recipe.title, user_recipes_path(@user, recipe) %></li>
   <% end %>
   </ol>
-
-<%= link_to 'Edit', edit_user_recipe_ingredient_path(@user, @recipe,  @ingredient) %> |
-<%= link_to 'Back', user_recipe_path(@user, @recipe) %>
+<% if @user && @recipe %>
+  <%= link_to 'Edit', edit_user_recipe_ingredient_path(@user, @recipe,  @ingredient) %> |
+  <%= link_to 'Back', user_recipe_path(@user, @recipe) %>
+<% else %>
+  <%= link_to 'Edit', edit_ingredient_path(@ingredient)%>
+  <%= link_to 'Back', user_path(@user) %>
+<% end %>
