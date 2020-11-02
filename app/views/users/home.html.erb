@@ -1,12 +1,14 @@
-<h1>Ketocook!  Lose weight, eat great!</h1>
+<h2 class="center">Ketocook: Lose weight, eat great!</h2>
 
   <% if session[:user_id] %>
     <h1>Welcome back <%= @user.username %></h1>
     <h2>Facebook UID: <%= @user.uid %></h2>
   <% else %>
     <br>
+
+  <div class="center">
     <h1>Sign In</h1>
-      <div class='center'>
+
       <%= form_for(:session, url: login_url) do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %><br><br>
@@ -16,7 +18,7 @@
       <%= f.submit value: "Log In", class:"btn btn-success" %>
       <% end %> 
     <%= link_to('Log in with Facebook', '/auth/facebook') %>
-      </div>
+  </div>
       <br><br>
-    <h1>Or register <%= link_to('Here', '/users/new') %> if you are a new user</h1>
+    <h3 class="center">Or register <%= link_to('Here', '/users/new') %> if you are a new user</h3>
   <% end %>

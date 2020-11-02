@@ -13,3 +13,22 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+div {
+  border: 3px solid blue;
+  color: aqua;
+}
+
+table {
+  border:3px solid black;
+}
+
+body {
+  color: aqua;
+  background-color: black;
+}
