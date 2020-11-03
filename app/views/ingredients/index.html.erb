@@ -5,20 +5,25 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Action</th>
-      <th colspan="3"></th>
+      <th>Edit</th>
+      <th>Delete</th>
+<th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
-        <td><%= ingredient.name %></td>
+        <td><%= link_to ingredient.name, ingredient_path(ingredient)%></td>
         <td><%= ingredient.description %></td>
+
         <td>
-          <p><%= link_to 'Show', ingredient, class:"btn btn-info" %></p>
-          <p><%= link_to 'Edit', edit_ingredient_path(ingredient), class:"btn btn-warning" %></p>
-          <p><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td></p>
+          <%= link_to 'edit', edit_ingredient_path(ingredient), class:"btn btn-warning" %>
+        </td>
+          
+        <td>
+          <%= link_to 'delete', ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

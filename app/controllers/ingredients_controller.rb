@@ -1,8 +1,8 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
-  # GET /ingredients
-  # GET /ingredients.json
+
+
   def index
     @user = current_user
     @ingredients = []
@@ -12,24 +12,19 @@ class IngredientsController < ApplicationController
     @ingredients = @ingredients.uniq.sort_by {|i| i.name}
   end
 
-  # GET /ingredients/1
-  # GET /ingredients/1.json
+  
+ 
   def show
     @user = current_user
     @recipe = Recipe.find(params[:recipe_id]) if params[:recipe_id]
   end
 
-  # GET /ingredients/new
+  
   def new
     @ingredient = Ingredient.new
   end
 
-  # GET /ingredients/1/edit
-  def edit
-  end
-
-  # POST /ingredients
-  # POST /ingredients.json
+ 
   def create
     @ingredient = Ingredient.new(ingredient_params)
 
@@ -44,8 +39,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /ingredients/1
-  # PATCH/PUT /ingredients/1.json
   def update
     respond_to do |format|
       if @ingredient.update(ingredient_params)
@@ -58,8 +51,8 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # DELETE /ingredients/1
-  # DELETE /ingredients/1.json
+  
+ 
   def destroy
     @ingredient.destroy
     respond_to do |format|
@@ -69,12 +62,12 @@ class IngredientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_ingredient
       @ingredient = Ingredient.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    
     def ingredient_params
       params.require(:ingredient).permit(:name, :description)
     end

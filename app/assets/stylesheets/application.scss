@@ -32,3 +32,26 @@ body {
   color: aqua;
   background-color: black;
 }
+
+a {
+  color: blue-green;
+}
+
+a:hover {
+  color:yellow;
+}
+
+a:visited {
+  color: gold;
+}
+
+@font-face {
+  font-family: 'Across The Stars', sans-serif;
+  src: url(/assets/fonts/la_chata/la-chata-normal.tff) format("truetype");
+}
+
+body {
+  font-family: 'Lachata', sans-serif;
+  font-size: 2em;
+}
+

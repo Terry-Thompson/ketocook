@@ -1,31 +1,26 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
-  # GET /recipes
-  # GET /recipes.json
   def index
     @user = current_user
     @recipes = Recipe.all
   end
 
-  # GET /recipes/1
-  # GET /recipes/1.json
   def show
     @user = current_user
     @recipe_ingredients = RecipeIngredient.where(recipe_id: @recipe.id)
   end
 
-  # GET /recipes/new
   def new
+    @user = current_user
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
   def edit
+binding.pry
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
-  # POST /recipes
-  # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
 
@@ -40,8 +35,8 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1
-  # PATCH/PUT /recipes/1.json
+  
+ 
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
@@ -54,8 +49,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1
-  # DELETE /recipes/1.json
   def destroy
     @recipe.destroy
     respond_to do |format|
