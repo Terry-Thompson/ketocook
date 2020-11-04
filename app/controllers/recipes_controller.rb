@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @user = current_user
     @recipes = Recipe.all
@@ -14,10 +15,23 @@ class RecipesController < ApplicationController
   def new
     @user = current_user
     @recipe = Recipe.new
+      if session[:count]
+        @count = session[:count]
+        @count.times {@recipe.ingredients.build}
+      end
+  end
+
+  def count
+    session[:count] = params[:ingredient_count].to_i
+    redirect_to new_user_recipe_path(current_user)
+  end
+
+  def reset
+    session[:count] = nil
+    redirect_to new_user_recipe_path(current_user)
   end
 
   def edit
-binding.pry
     @recipe = Recipe.find(params[:recipe_id])
   end
 
@@ -65,6 +79,6 @@ binding.pry
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description)
+      params.require(:recipe).permit(:title, :description,:ingredient_count,ingredient_ids:[], ingredients_attributes: [:name, :description, :quantity])
     end
 end

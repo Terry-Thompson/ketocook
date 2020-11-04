@@ -1,5 +1,14 @@
 <h1>New Recipe</h1>
 
-<%= render 'form', recipe: @recipe %>
+<% if !@count %>
+<p>How many ingredients does your recipe have?
+  <%= form_with url: ingredient_count_path do |f|%>
+  <%= f.number_field :ingredient_count, min:1, max: 50 %>
+  <%= f.submit "submit" %></p>
+  <% end %>
 
-<%= link_to 'Back', recipes_path %>
+<% else %>
+  <%= render 'form', recipe: @recipe %>
+<% end %>
+
+<%= link_to 'reset', reset_path %>
