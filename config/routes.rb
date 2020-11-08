@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'sessions/find_user'
   post '/recipes/count' => 'recipes#count', as: 'ingredient_count'
   get '/recipes/reset' => 'recipes#reset', as: 'reset'
+  post '/users/:user_id/recipes' => 'recipes#create', as: 'create_recipe'
 
   resources :ingredients
   resources :users do

@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
       if session[:count]
         @count = session[:count]
-        @count.times {@recipe.ingredients.build}
+        @count.times {@recipe.ingredients.build.recipe_ingredients.build}
       end
   end
 
@@ -36,20 +36,14 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
-      else
-        format.html { render :new }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
-    end
+    @user = current_user
+    @recipe = @user.recipes.build(recipe_params)
+     
+    binding.pry
+    @recipe.save
+    redirect_to user_recipe_path(@user, @recipe)
   end
 
-  
  
   def update
     respond_to do |format|
@@ -79,6 +73,19 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description,:ingredient_count,ingredient_ids:[], ingredients_attributes: [:name, :description, :quantity])
+      params.require(:recipe).permit(
+        :title, 
+        :description, 
+        :instructions, 
+        :ingredient_count, 
+        ingredient_ids: [],
+        ingredients_attributes: [
+          :name, 
+          :description, 
+        ],
+        recipe_ingredients_attributes: [
+          :quantity
+        ]
+      )
     end
 end
