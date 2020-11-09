@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#home'  
+  root 'users#home', as: 'home'  
   get '/auth/facebook/callback' => 'sessions#create'
   post 'login' => 'sessions#create'
   post 'meal_plan' => 'users#meal_plan'

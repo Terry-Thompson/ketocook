@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    params[:user_id] == current_user.id    
+
   end
 end
 
