@@ -1,6 +1,6 @@
 <h2 class="center">Ketocook: Lose weight, eat great!</h2>
 
-  <% if session[:user_id] %>
+  <% if session[:current_user_id] %>
     <h1>Welcome back <%= @user.username %></h1>
     <h2>Facebook UID: <%= @user.uid %></h2>
   <% else %>
@@ -17,7 +17,7 @@
       <br>
       <%= f.submit value: "Log In", class:"btn btn-success" %>
       <% end %> 
-    <%= link_to('Log in with Facebook', '/auth/facebook') %>
+    <%= link_to('Log in with Facebook', '/auth/facebook/callback') %>
   </div>
       <br><br>
     <h3 class="center">Or register <%= link_to('Here', '/users/new') %> if you are a new user</h3>

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/recipes' => 'recipes#create', as: 'create_recipe'
 
   resources :ingredients
-  resources :users do
+
+  resources :users, only: [:home, :show, :new, :edit, :destroy, :update] do
     resources :recipes do  
       resources :ingredients
     end

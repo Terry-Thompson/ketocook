@@ -7,7 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <% if session[:current_user_id] %>
+    <nav class= "navbar-nav">
+    <%= link_to "My mealplan", user_path(@user), class:"btn btn-secondary"%>
+    <%= link_to "My recipes", user_recipes_path(@user), class:"btn btn-primary"%>
+    <%= link_to "My ingredients", ingredients_path, class:"btn btn-info" %>
+    <%= link_to "Account Settings", edit_user_path(@user), class:"btn btn-warning" %>
+    <%= link_to "Log out", logout_path, class:"btn btn-danger" %>
+    </nav>
+  <% end %>
+
   </head>
+
 
   <body>
 <% flash.each do |type, msg| %>
