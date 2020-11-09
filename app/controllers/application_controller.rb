@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :check_user
   add_flash_types :danger, :info, :warning, :success
 
   def current_user
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    
+    params[:user_id] == current_user.id    
   end
 end
 
