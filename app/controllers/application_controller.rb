@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   add_flash_types :danger, :info, :warning, :success
 
   def current_user
@@ -21,6 +20,9 @@ class ApplicationController < ActionController::Base
     @user.save
   end
 
+  def check_user
+    
+  end
 end
 
 
