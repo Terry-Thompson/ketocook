@@ -37,10 +37,7 @@ class RecipesController < ApplicationController
 
   def create
     @user = current_user
-    @recipe = @user.recipes.build(recipe_params)
-     
-    binding.pry
-    @recipe.save
+    @recipe = Recipe.create_from_params(@user,recipe_params)   
     redirect_to user_recipe_path(@user, @recipe)
   end
 
