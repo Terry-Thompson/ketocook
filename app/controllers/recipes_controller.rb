@@ -83,10 +83,11 @@ class RecipesController < ApplicationController
         ingredients_attributes: [
           :name, 
           :description, 
-        ],
-        recipe_ingredients_attributes: [
-          :quantity
+          recipe_ingredients_attributes: [
+            :quantity
+          ]
         ]
+        
       )
     end
 end

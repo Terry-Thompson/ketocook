@@ -1,7 +1,7 @@
   <strong>Username: <%= @user.username %><%= button_to "Randomize Meals", meal_plan_path, class:"btn btn-warning" %>
   </strong> 
 
-<% if meal_plan? %>
+<% if meal_plan != "[]" %>
   <table class="table table-bordered">
       <th>Day</th>
       <th>Meals</th>

@@ -5,8 +5,4 @@ module UsersHelper
     recipes = ary.collect{|i| Recipe.find(i)}
   end
 
-
-  def meal_plan?
-    @user.meal_plan != "" || nil
-  end
 end
