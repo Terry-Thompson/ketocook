@@ -16,8 +16,14 @@
       <br>
       <%= f.submit value: "Log In", class:"btn btn-success" %>
       <% end %> 
-    <%= link_to('Log in with Facebook', '/auth/facebook/callback') %>
   </div>
+
+    <h1 class="center">OR</h1>
+    <h3 class="center">Login with:</h3>
+
+    <div class="center">
+    <%= button_to('Facebook', '/auth/facebook/callback', class: "btn btn--facebook") %>
+    </div>
       <br><br>
     <h3 class="center">Or register <%= link_to('Here', '/users/new') %> if you are a new user</h3>
   <% end %>
