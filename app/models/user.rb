@@ -7,4 +7,12 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true, :format => /\A[a-zA-Z0-9.!\#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\z/
 
+
+  def self.from_omniauth(auth)
+    # Creates a new user only if it doesn't exist
+    where(email: auth.info.email).first_or_initialize do |user|
+      user.username = auth.info.username
+      user.email = auth.info.email
+    end
+  end
 end

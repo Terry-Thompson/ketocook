@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root 'users#home', as: 'home'  
-  get '/auth/facebook/callback' => 'sessions#create'
+  
+  # Routes for Google authentication
+    get 'auth/:provider/callback' => 'sessions#googleAuth'
+    get 'auth/failure', to: redirect('/')
+
+  # Routes for Facebook authentication
+    get '/auth/facebook/callback' => 'sessions#create'
+
   post 'login' => 'sessions#create'
   post 'meal_plan' => 'users#meal_plan'
   get 'sessions/create'

@@ -24,6 +24,10 @@
     <div class="center">
     <%= button_to('Facebook', '/auth/facebook/callback', class: "btn btn--facebook") %>
     </div>
+
+    <div class="center">
+    <%= link_to('Google', '/auth/:provider/callback', class: "btn btn-primary") %>
+    </div>
       <br><br>
     <h3 class="center">Or register <%= link_to('Here', '/users/new') %> if you are a new user</h3>
   <% end %>
