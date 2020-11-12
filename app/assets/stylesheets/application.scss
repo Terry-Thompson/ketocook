@@ -46,7 +46,7 @@ a:visited {
 }
 
 @font-face {
-  font-family: 'Across The Stars', sans-serif;
+  font-family: 'Lachata', sans-serif;
   src: url(/assets/fonts/la_chata/la-chata-normal.tff) format("truetype");
 }
 
@@ -55,8 +55,8 @@ body {
   font-size: 2em;
 }
 
-.btn--facebook {
-    background-image: initial;
-    background-color: rgb(53, 82, 142);
-    color: rgb(232, 230, 227);
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

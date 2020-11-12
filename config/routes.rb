@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # Routes for Facebook authentication
     get '/auth/facebook/callback' => 'sessions#create'
 
+  # Routes for Github authentication
+    get '/auth/github/callback' => 'sessions#create'
+
   post 'login' => 'sessions#create'
   post 'meal_plan' => 'users#meal_plan'
   get 'sessions/create'
