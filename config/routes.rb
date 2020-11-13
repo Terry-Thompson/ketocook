@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   root 'users#home', as: 'home'  
   
-  # Routes for Google authentication
-#    get 'auth/:provider/callback' => 'sessions#googleAuth'
-#    get 'auth/failure', to: redirect('/')
 
   # Routes for Facebook authentication
     get '/auth/facebook/callback' => 'sessions#facebookAuth'
 
   # Routes for Github authentication
     get '/auth/github/callback' => 'sessions#create'
+
+  # Routes for Google authentication
+    get 'auth/:provider/callback' => 'sessions#googleAuth'
+    get 'auth/failure', to: redirect('/')
+
 
   post 'login' => 'sessions#create'
   post 'meal_plan' => 'users#meal_plan'

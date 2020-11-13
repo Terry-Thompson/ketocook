@@ -47,6 +47,7 @@ class SessionsController < ApplicationController
     refresh_token = access_token.credentials.refresh_token
     user.google_refresh_token = refresh_token if refresh_token.present?
     user.save
+    binding.pry
     redirect_to user_path(current_user)
   end
 
