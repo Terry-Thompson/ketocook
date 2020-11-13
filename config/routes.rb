@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'auth/failure', to: redirect('/')
 
   # Routes for Facebook authentication
-    get '/auth/facebook/callback' => 'sessions#create'
+    get '/auth/facebook/callback' => 'sessions#facebookAuth'
 
   # Routes for Github authentication
     get '/auth/github/callback' => 'sessions#create'

@@ -25,6 +25,17 @@ class SessionsController < ApplicationController
     User.find(current_user.id)
   end
 
+  def facebookAuth
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.username = auth['info']['username']
+      u.email = auth['info']['email']
+    end
+ 
+    session[:user_id] = @user.id
+ 
+    render user_path(@user)
+  end
+
   def googleAuth
     # Get access tokens from the google server
     access_token = request.env["omniauth.auth"]
