@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_194739) do
+ActiveRecord::Schema.define(version: 2020_11_13_024615) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_194739) do
     t.text "meal_plan", default: ""
     t.string "google_token"
     t.string "google_refresh_token"
+    t.integer "uid"
   end
 
 end
