@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
   root 'users#home', as: 'home'  
   
-
-  # Routes for Facebook authentication
-    get '/auth/facebook/callback' => 'sessions#omniauth'
-
-  # Routes for Github authentication
-  # get '/auth/github/callback' => 'sessions#omniauth'
-
-  # Routes for Google authentication
-    get 'auth/:provider/callback' => 'sessions#omniauth'
+  #Omiauth routes
+    get '/auth/:provider/callback' => 'sessions#omniauth'
     get 'auth/failure', to: redirect('/')
 
 
