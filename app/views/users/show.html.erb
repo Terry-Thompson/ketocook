@@ -1,8 +1,12 @@
-  <strong>Username: <%= @user.username %><%= button_to "Randomize Meals", meal_plan_path, class:"btn btn-warning" %>
-  </strong> 
+  <strong>Welcome: <%= @user.username %>  </strong> 
+  <br><br>
 
-<% if meal_plan != "[]" %>
-  <table class="table table-bordered">
+  <% if empty_meal_plan %>
+    <p>You don't have a meal plan yet.  Go to "My Recipes" to add some recipes</p>
+  <% else %>
+
+    <%= button_to "Randomize Meals", meal_plan_path, class:"btn btn-warning" %>
+    <table class="table table-bordered">
       <th>Day</th>
       <th>Meals</th>
       <% @weekdays.each_with_index do |weekday, i| %>
@@ -11,6 +15,6 @@
         <td><%= weekday %></td>
         <td><%= link_to recipe.title, user_recipe_path(@user, recipe) %></td> 
       </tr> 
-      <% end %>
-  </table>
-<% end %>
+      <% end#of block %>
+    </table>
+  <% end#of if statement %>

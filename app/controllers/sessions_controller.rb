@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    binding.pry
     user = User.from_omniauth(auth)
 
     if user.valid?

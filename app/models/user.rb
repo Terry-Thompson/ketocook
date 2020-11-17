@@ -10,10 +10,17 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     # Creates a new user only if it doesn't exist
-    User.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |u|
+    user = User.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |u|
       binding.pry 
+      u.name = auth[:info][:name]
+      u.username = auth[:info][:email]
+      u.provider = auth[:provider]
       u.email = auth[:info][:email]
+      u.uid = auth[:uid]
+      u.meal_plan ||= ""
       u.password = SecureRandom.hex(16)
+      u.save
       end# of block
+    user
   end#of method
 end#of class
