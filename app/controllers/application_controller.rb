@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :check_user
+
   add_flash_types :danger, :info, :warning, :success
 
   def current_user
@@ -27,6 +27,12 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+  end
+
+  def authentication_required
+    if !logged_in?
+      redirect_to '/'
+    end
   end
 
 end
