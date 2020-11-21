@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
 
   add_flash_types :danger, :info, :warning, :success
+protect_from_forgery with: :exception
+
+  rescue_from CanCan::AccessDenied do 
+    |exception|
+    redirect_to '/'
+    flash[:danger] = "Access Denied."
+  end
+  
 
   def current_user
     if id = session[:current_user_id]
