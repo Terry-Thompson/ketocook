@@ -16,7 +16,7 @@ else
   can :create, Ingredient
   can :update, Ingredient{|i| i.user == user}
   can :destroy, Ingredient{|i| i.user == user}
-  can :read, :all
+  can :read, User, :id => user.id
 end
     
     # The first argument to `can` is the action you are giving the user

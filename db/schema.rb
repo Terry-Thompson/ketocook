@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_212731) do
+ActiveRecord::Schema.define(version: 2020_11_22_001035) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_212731) do
     t.integer "uid"
     t.string "name"
     t.string "provider"
+    t.boolean "admin", default: false
   end
 
 end
