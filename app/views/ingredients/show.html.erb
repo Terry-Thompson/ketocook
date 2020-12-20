@@ -18,9 +18,9 @@
   <% end %>
   </ol>
 <% if @user && @recipe %>
-  <%= link_to 'Edit', edit_user_recipe_ingredient_path(@user, @recipe,  @ingredient) %> |
-  <%= link_to 'Back', user_recipe_path(@user, @recipe) %>
+  <%= link_to 'Edit', edit_user_recipe_ingredient_path(@user, @recipe,  @ingredient), class:"btn btn-warning" %> |
+  <%=link_to 'delete', @ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
 <% else %>
-  <%= link_to 'Edit', edit_ingredient_path(@ingredient)%>
-  <%= link_to 'Back', user_path(@user) %>
+  <%= link_to 'Edit', edit_ingredient_path(@ingredient), class:"btn btn-warning"%>
+  <%= link_to 'delete', @ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
 <% end %>

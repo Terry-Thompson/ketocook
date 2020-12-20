@@ -11,12 +11,23 @@ if user.admin?
   can :manage, :all
 else
   can :create, Recipe
-  can :update, Recipe{|r| r.user == user}
-  can :destroy, Recipe{|r| r.user == user}         
+  can :update, Recipe do |recipe| 
+    recipe.user == user
+  end
+  can :destroy, Recipe do |recipe| 
+    recipe.user == user         
+  end
+
   can :create, Ingredient
-  can :update, Ingredient{|i| i.user == user}
-  can :destroy, Ingredient{|i| i.user == user}
-  can :read, User, :id => user.id
+  can :update, Ingredient do |ingredient| 
+    ingredient.user == user
+  end
+  can :destroy, Ingredient do |ingredient| 
+    ingredient.user == user
+  end
+  can :read, User, :user_id == user.id
+  can :read, Recipe
+  can :read, Ingredient
 end
     
     # The first argument to `can` is the action you are giving the user

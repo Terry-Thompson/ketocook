@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource param_method: :recipe_params
+
 
 
   def index
@@ -33,7 +33,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:recipe_id])
+    @user = current_user
+    @recipe = Recipe.find(params[:id])
   end
 
   def create

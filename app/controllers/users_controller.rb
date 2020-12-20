@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, :authentication_required, only: [:show, :edit, :update, :destroy]
-  
+
+
   def home
     @user = User.new
   end
